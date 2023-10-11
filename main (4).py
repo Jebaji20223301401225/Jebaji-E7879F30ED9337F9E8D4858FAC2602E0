@@ -1,57 +1,25 @@
-# BankAccount class 
-class Bankaccount:
+class student:
+  
+  def __init__(self,name,roll_number,cgpa):
+    self.name=name
+    self.roll_number=roll_number
+    self.cgpa=cgpa
 
-  def __init__(self):
-
-# Function to deposit amount
-   def deposit(self):
-      amount =float(input("enter                amount to be deposited:"))       
-      self.balance+=amount
-      print("\n Amount                              Deposited:",amount)
-
-# Function to withdraw the amount
-def withdraw (self):
-     amount=float(input("enter amount to be withdrawn:"))
-     if self.balance>=amount:
-       self.balance-=amount
-       print("\n you withdraw:, amount")
-     else:
-       print("\n insufficient balance ")
-
-# Function to display the amount
-def display(self):
-        print("\n New available balance=", self.balance)
-
-# python program to create Bank account class 
-# with both a deposit() and a withdraw () function
-class  Bank_Account:
-    def __init__(self):
-      self.balance=0
-      print("Hello!!! Welcome to the deposit & withdrawal machine ")
-
-    def deposit(self):
-        amount=float(input("enter amount to be deposited"))
-        self.balance+=amount
-        print ("\n amount deposited:", amount)
-
-    def withdraw(self):
-        amount=float(input("enter amount to be withdraw:"))
-        if self.balance>=amount:
-           self.balance-=amount
-           print("\n you withdraw:", amount)
-        else:
-          print("\n insufficient balance ")
-
-    def display(self):
-        print("\n new available balance=",self.balance)
-
-# Driver code
-
-#creating an object of class
-s=Bank_Account()
-
-# calling functions with that class object
-s.deposit()
-s.withdraw()
-s.display()
+def sort_students (student_list):
+# sort the list of students in descending order of the cgpa     
     
+    sorted_students=sorted(student_list, key=lambda student:  student.cgpa ,reverse=True)
+
+    return sorted_students
+
+# example usage
+students=[ 
+  student ("Vibi","3456",8.7),
+  student("Jaya","3457",8.6),
+  student("nandhu","3458",8.9), 
+  student("renju","3459",8.5),
+  student ("ashi","3460",8.8),]
+sorted_students=sort_students(students)
+#print the sorted list of students
+for student in sorted_students:
+  print("Name:{},Roll number:{},CGPA:{}".format(student.name,student.roll_number,student.cgpa))
